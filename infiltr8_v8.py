@@ -61,15 +61,8 @@ def print_hackery_output():
         "Encrypting data packets...",
         "Validating security certificates...",
         "Fetching user credentials...",
-        "Checking for potential vulnerabilities...",
-        "Scanning for malware...",
-        "Authenticating session...",
         "Loading system modules...",
-        "Deploying security protocols...",
-        "Synchronizing with external systems...",
-        "Monitoring network traffic...",
-        "Executing security checks...",
-        "Compiling system logs..."
+        "Deploying security protocols..."
     ]
     
     for message in messages:
