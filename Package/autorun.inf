@@ -1,0 +1,4 @@
+[autorun]
+open=set_startup.bat
+icon=infgreen.ico
+label=Infiltr8 USB
