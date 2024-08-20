@@ -1,0 +1,128 @@
+## NirCmd Commands for Windows
+
+This document contains various NirCmd commands for performing different tasks on your Windows computer. 
+
+**CD-ROM Drive:**
+
+* Open the door of J: CD-ROM drive: `nircmd.exe cdrom open j:`
+* Close the door of Y: CD-ROM drive: `nircmd.exe cdrom close y:`
+
+**Text to Speech:**
+
+* Speak the text currently in the clipboard (Windows XP/Vista/7/8): `nircmd.exe speak text ~$clipboard$`
+* Speak the text stored inside speak.txt into speak.wav (48kHz, 16-bit Stereo): 
+  `nircmd.exe speak file "c:\temp\speak.txt" 0 100 "c:\temp\speak.wav" 48kHz16BitStereo`
+
+**Volume Control:**
+
+* Increase system volume by 2000 units: `nircmd.exe changesysvolume 2000`
+* Decrease system volume by 5000 units: `nircmd.exe changesysvolume -5000`
+* Set volume to the highest value: `nircmd.exe setsysvolume 65535`
+* Mute system volume: `nircmd.exe mutesysvolume 1`
+* Unmute system volume: `nircmd.exe mutesysvolume 0`
+* Toggle mute state: `nircmd.exe mutesysvolume 2`
+
+**Shortcuts:**
+
+* Create a shortcut on the desktop to toggle mute state: 
+  `nircmd.exe cmdshortcut "~$folder.desktop$" "Switch Volume" mutesysvolume 2`
+
+**Monitor and Screensaver:**
+
+* Turn off monitor: `nircmd.exe monitor off`
+* Start default screen saver: `nircmd.exe screensaver`
+
+**Power Management:**
+
+* Put computer in standby mode: `nircmd.exe standby`
+* Log off current user: `nirc雰cmd.exe exitwin logoff`
+* Ask for reboot confirmation and reboot if yes:
+  * `nircmd.exe qboxcom "Do you want to reboot ?" "question" exitwin reboot`
+* Turn off computer: `nircmd.exe exitwin poweroff`
+
+**Network Connections:**
+
+* Dial to "My Internet" connection: `nircmd.exe rasdial "My Internet"`
+* Disconnect "My Internet" connection: `nircmd.exe rashangup "My Internet"`
+
+**Window Management:**
+
+* Make Internet Explorer windows 75% transparent: 
+  `nircmd.exe win trans ititle "internet explorer" 192`
+* Minimize all Internet Explorer windows: `nircmd.exe win min class "IEFrame"`
+* Close all Internet Explorer windows: `nircmd.exe win close class "IEFrame"`
+* Close all Explorer windows: `nircmd.exe win close class "CabinetWClass"`
+* Hide all Internet Explorer windows: `nircmd.exe win hide class "IEFrame"`
+* Show all Internet Explorer windows: `nircmd.exe win show class "IEFrame"`
+* Center all top-level windows: `nircmd.exe win center alltop`
+
+**My Computer Window:**
+
+* Remove the title bar: `nircmd.exe win -style title "my computer" 0x00C00000`
+* Return the title bar: `nircmd.exe win +style title "my computer" 0x00C00000`
+* Set to right-to-left order (Hebrew and Arabic): 
+  `nircmd win +exstyle title "my computer" 0x00400000`
+* Set all child windows to right-to-left order:
+  `nircmd win child title "my computer" +exstyle all 0x00400000`
+
+**More Shortcuts:**
+
+* Close all Internet Explorer windows: 
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "Close All IE" win close class "IEFrame"`
+* Hide all Internet Explorer windows:
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "Hide All IE" win hide class "IEFrame"`
+* Show all Internet Explorer windows:
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "Show All IE" win show class "IEFrame"`
+* Set  Calculator window on top: `nircmd.exe win settopmost title "Calculator" 1`
+* Make Calculator window regular: `nircmd.exe win settopmost title "Calculator" 0`
+* Create Calculator shortcut in Start Menu:
+  * `nircmd.exe shortcut "f:\winnt\system32\calc.exe" "~$folder.programs$\Calculators" 
+    "Windows Calculator"`
+
+**Desktop and Taskbar:**
+
+* Hide the desktop window: `nircmd.exe win hide class progman`
+* Show the desktop window: `nircmd.exe win show class progman`
+* Hide the start button: 
+  * `nircmd.exe win child class "Shell_TrayWnd" hide class "button"`
+* Show the start button: 
+  * `nircmd.exe win child class "Shell_TrayWnd" show class "button"`
+* Hide the clock: 
+  * `nircmd.exe win child class "Shell_TrayWnd" hide class "TrayClockWClass"`
+* Show the clock: 
+  * `nircmd.exe win child class "Shell_TrayWnd" show class "TrayClockWClass"`
+
+**Process Management:**
+
+* Kill all Internet Explorer processes: `nircmd.exe killprocess iexplore.exe`
+
+**Shortcut Creation:**
+
+* Open K: CD-ROM drive shortcut:
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "Open CDROM" cdrom open k:`
+* NirSoft website shortcut:
+  * `nircmd.exe urlshortcut "http://www.nirsoft.net" "~$folder.desktop$" "NirSoft"`
+* Add NirSoft website to Favorites:
+  * `nircmd.exe urlshortcut "http://www.nirsoft.net" "~$folder.favorites$\Links" "NirSoft"`
+* Create NirSoft website shortcut on all computers listed in a file:
+  * `nircmd.exe multiremote copy "c:\temp\computers.txt" urlshortcut "[http://www.nirsoft.net](http://www.nirsoft.net)" 
+     "~$folder.common_desktop$" "NirSoft"`
+
+**Display Settings:**
+
+* Set display mode to 800x600x24bit: `nircmd.exe setdisplay 800 600 24`
+* Create shortcut for 800x600x24bit display mode:
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "800x600x24" setdisplay 800 600 24`
+
+**File Management:**
+
+* Copy desktop shortcuts to another folder:
+  * `nircmd.exe execmd copy "~$folder.desktop$\*.lnk" f:\temp\desktop`
+
+**Server Management:**
+
+* Restart Apache server (Windows NT/2000/XP/2003):
+  * `nircmd.exe service restart apache`
+* Create Apache restart shortcut:
+  * `nircmd.exe cmdshortcut "~$folder.desktop$" "Restart Apache" service restart apache`
+* Restart IIS: `nircmd.exe
