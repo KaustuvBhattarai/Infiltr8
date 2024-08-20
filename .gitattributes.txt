@@ -1,0 +1,6 @@
+# Define the language for specific file types
+*.py linguist-language=Python
+
+# Define the language for specific directories
+src/**/*.py linguist-language=Python
+docs/**/*.md linguist-language=Markdown

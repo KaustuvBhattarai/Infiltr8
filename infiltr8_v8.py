@@ -10,7 +10,6 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def animate_intro_art():
-    """Animate intro art with various frames."""
     intro_art = """
 ██╗███╗   ██╗███████╗██╗██╗  ████████╗██████╗  █████╗ 
 ██║████╗  ██║██╔════╝██║██║  ╚══██╔══╝██╔══██╗██╔══██╗
@@ -51,8 +50,7 @@ System Details:
     except Exception as e:
         return f"Error fetching system details: {e}"
 
-def print_hackery_output():
-    """Prints a lot of simulated hackery outputs."""
+def print_system_output():
     messages = [
         "Initializing network interface...",
         "Connecting to remote servers...",
@@ -73,7 +71,7 @@ def start_server():
     """Start the external server and display detailed status updates."""
     print("Initializing infiltration sequence...\n")
     
-    # Simulate a hackery loading effect
+    # Simulate a system loading effect
     for i in range(10):
         sys.stdout.write(f"\rLoading{' ' * i}{'.' * (10 - i)}")
         sys.stdout.flush()
@@ -86,8 +84,8 @@ def start_server():
     print(get_system_details())
     time.sleep(2)
     
-    # Print hackery output
-    print_hackery_output()
+    # Print system output
+    print_system_output()
     
     # Start the external executable
     try:
