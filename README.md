@@ -13,4 +13,5 @@ This is a Python application that listens for connections and allows remote comm
 
 ## Security Warning :
 This server implementation does not include security measures such as authentication or input validation. 
+
 **It is intended for my personal use only and should not be used in a production environment.**
