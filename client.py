@@ -14,10 +14,16 @@ def client_program():
             if command.lower() == 'exit':
                 client.send(command.encode('utf-8'))
                 break
+            
             if command:
                 client.send(command.encode('utf-8'))
-                response = client.recv(4096).decode('utf-8')
-                print(response)
+                
+                while True:
+                    response = client.recv(4096).decode('utf-8')
+                    if response:
+                        print(response)
+                        break
+                    
     except Exception as e:
         print(f"Error: {e}")
     finally:
