@@ -2,7 +2,7 @@ import socket
 
 def client_program():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_ip = 'SERVER_IP'  # Replace with the server's IP address
+    server_ip = '192.168.1.66'  # Replace with the server's IP address
     server_port = 9999
     
     try:
